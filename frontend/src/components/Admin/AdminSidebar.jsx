@@ -3,6 +3,8 @@ import { FaBoxOpen, FaClipboardList, FaSignOutAlt, FaStore, FaUser } from 'react
 import { useDispatch } from 'react-redux';
 import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { logout } from '../../redux/slices/authSlice';
+import { clearCart } from '../../redux/slices/cartSlice';
+
 const AdminSidebar = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -17,7 +19,7 @@ const AdminSidebar = () => {
     return (
         <div className='p-6'>
             <div className='mb-6'>
-                <Link to="/admin" className='text-2xl font-medium'>E-Commerce</Link>
+                <Link to="/admin" className='text-2xl font-medium'>TrendyNest</Link>
             </div>
             <h2 className='text-xl font-medium mb-6 text-center'> Admin Dashboard</h2>
 
@@ -53,4 +55,4 @@ const AdminSidebar = () => {
     )
 }
 
-export default AdminSidebar
+export default AdminSidebar;

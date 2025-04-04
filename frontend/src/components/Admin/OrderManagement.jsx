@@ -24,7 +24,7 @@ const OrderManagement = () => {
   };
 
   if (laoding) return <p>Loading ...</p>;
-  if (error) return <p>Error {error}</p>; 
+  if (error) return <p>Error: {error}</p>; 
 
   
     return (

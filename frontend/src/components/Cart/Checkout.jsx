@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import PaypalButton from './PaypalButton';
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
-import {createCheckout} from "../../redux/slices/checkoutSlice"
+import { createCheckout } from "../../redux/slices/checkoutSlice"
 
 
 const Checkout = () => {
@@ -39,9 +39,9 @@ const Checkout = () => {
                 paymentMethod: "Paypal",
                 totalPrice: cart.totalPrice,
             })
-            
+
             );
-            
+
             if (res.payload && res.payload._id) {
                 setCheckoutId(res.payload._id);// Set checkout ID if checkout was successful
             }
@@ -57,7 +57,7 @@ const Checkout = () => {
                     }
                 }
             );
-                await handleFinalizeCheckout(checkoutId); // Finalize checkout if payment is successful
+            await handleFinalizeCheckout(checkoutId); // Finalize checkout if payment is successful
         } catch (error) {
             console.error(error);
         }
@@ -215,4 +215,4 @@ const Checkout = () => {
     )
 }
 
-export default Checkout
+export default Checkout;

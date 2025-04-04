@@ -46,4 +46,4 @@ const handleLogout = () => {
   )
 }
 
-export default Profile
+export default Profile;

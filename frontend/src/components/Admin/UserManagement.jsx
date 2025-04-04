@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {useNavigate} from "react-router-dom";
+import { fetchUsers } from '../../redux/slices/adminSlice';
+
 const UserManagement = () => {
   
   const dispatch = useDispatch();
@@ -134,4 +136,4 @@ const UserManagement = () => {
   )
 }
 
-export default UserManagement
+export default UserManagement;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom'
@@ -90,4 +90,4 @@ const OrderDetailsPage = () => {
     )
 }
 
-export default OrderDetailsPage
+export default OrderDetailsPage;

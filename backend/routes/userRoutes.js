@@ -1,108 +1,104 @@
 const express = require("express");
 const User = require("../models/User");
 const jwt = require("jsonwebtoken");
-const {protect} = require("../middleware/authMiddleware");
+const { protect } = require("../middleware/authMiddleware");
 
 const router = express.Router();
 
-
-
-
 router.post("/register", async (req, res) => {
-    const { name, email, password } = req.body;
+  const { name, email, password } = req.body;
 
-    try {
-        // Registration logic
-    let user = await User.findOne({email});
+  try {
+    // Registration logic
+    let user = await User.findOne({ email });
 
-    if (user) return res.status(400).json({ message: "User already exists"});
+    if (user) return res.status(400).json({ message: "User already exists" });
 
-user = new User({ name, email, password});
-await user.save();
+    user = new User({ name, email, password });
+    await user.save();
 
-// Create JWT payload
+    // Create JWT payload
 
-const payload = {user: {id: user._id, role: user.role} };
+    const payload = { user: { id: user._id, role: user.role } };
 
-// Sign and return the token along with user data 
-jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: "96h"}, (err, token) => {
-    if (err) throw err;
+    // Sign and return the token along with user data
+    jwt.sign(
+      payload,
+      process.env.JWT_SECRET,
+      { expiresIn: "7d" },
+      (err, token) => {
+        if (err) throw err;
 
-
-   // Send the user and token in response
-   res.status(201).json({
-    user: {
-        _id: user._id,
-        name: user.name,
-        email: user.email,
-        role: user.role,
-    },
-    token,
-   }) ;
+        // Send the user and token in response
+        res.status(201).json({
+          user: {
+            _id: user._id,
+            name: user.name,
+            email: user.email,
+            role: user.role,
+          },
+          token,
+        });
+      }
+    );
+  } catch (error) {
+    console.log(error);
+    res.status(500).send("Server Error");
+  }
 });
-
-    } catch (error) {
-        console.log(error);
-        res.status(500).send("Server Error");
-    }
-
-});
-
 
 // @route Post /api/users/login
 // @desc Authenticate user
 // @access Public
 router.post("/login", async (req, res) => {
-    const {email, password} = req.body;
+  const { email, password } = req.body;
 
+  try {
+    // Find the user by email
+    let user = await User.findOne({ email });
 
-try{
-// Find the user by email
-let user = await User.findOne({email});
+    if (!user) return res.status(400).json({ message: "Invalid Credentials" });
 
-if(!user) return res.status(400).json({message: "Invalid Credentials"});
+    const isMatch = await user.matchPassword(password);
 
-const isMatch = await user.matchPassword(password);
+    if (!isMatch)
+      return res.status(400).json({ message: "Invalid Credentials" });
 
-if (!isMatch) return res.status(400).json({message: "Invalid Credentials"});
+    // Create JWT payload
 
-// Create JWT payload
+    const payload = { user: { id: user._id, role: user.role } };
 
-const payload = {user: {id: user._id, role: user.role} };
+    // Sign and return the token along with user data
+    jwt.sign(
+      payload,
+      process.env.JWT_SECRET,
+      { expiresIn: "7d" },
+      (err, token) => {
+        if (err) throw err;
 
-// Sign and return the token along with user data 
-jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: "96h"}, (err, token) => {
-    if (err) throw err;
-
-
-   // Send the user and token in response
-   res.json({
-    user: {
-        _id: user._id,
-        name: user.name,
-        email: user.email,
-        role: user.role,
-    },
-    token,
-   }) ;
-});
-
-
-
-} catch (error) {
+        // Send the user and token in response
+        res.json({
+          user: {
+            _id: user._id,
+            name: user.name,
+            email: user.email,
+            role: user.role,
+          },
+          token,
+        });
+      }
+    );
+  } catch (error) {
     console.error(error);
     res.status(500).send("Server Error");
-    
-}
-
+  }
 });
-
 
 //@route GET /api/users/profile
 //@desc GET logged-in user's profile (Protected Route)
 //@access Private
-router.get("/profile", protect ,async(req, res) => {
-    res.json(req.user);
+router.get("/profile", protect, async (req, res) => {
+  res.json(req.user);
 });
 
 module.exports = router;
