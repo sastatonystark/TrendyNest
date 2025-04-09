@@ -7,7 +7,7 @@ import { fetchAllOrders } from '../redux/slices/adminOrderSlice';
 const AdminHomePage = () => {
     const dispatch = useDispatch();
     const { products, loading: productsLoading, error: productsError } = useSelector((state) => state.adminProducts || {});
-    const { orders = [], totalOrders = 0, totalSales = 0, loading: ordersLoading, error: ordersError } = useSelector((state) => state.adminOrders || {});
+    const { orders = [], totalOrders = 0, totalSales = 0, loading: ordersLoading, error: ordersError } = useSelector((state) => state.adminOrder || {});
 
     useEffect(() => {   
         dispatch(fetchAdminProducts());

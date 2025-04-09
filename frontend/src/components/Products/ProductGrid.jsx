@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { Link } from "react-router-dom";
 
 const ProductGrid = ({ products, loading, error }) => {
@@ -26,4 +26,4 @@ const ProductGrid = ({ products, loading, error }) => {
     )
 }
 
-export default ProductGrid
+export default ProductGrid;

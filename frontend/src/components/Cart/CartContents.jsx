@@ -62,4 +62,4 @@ if (!cart || !cart.products) return <p>Cart is empty</p>;
   );
 };
 
-export default CartContents
+export default CartContents;

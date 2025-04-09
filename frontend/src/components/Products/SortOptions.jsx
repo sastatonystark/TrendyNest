@@ -1,5 +1,5 @@
-import React from 'react'
-import { useSearchParams } from 'react-router-dom'
+import React from 'react';
+import { useSearchParams } from 'react-router-dom';
 
 const SortOptions = () => {
   
@@ -27,4 +27,4 @@ const handleSortChange = (e) => {
   )
 }
 
-export default SortOptions
+export default SortOptions;

@@ -1,7 +1,7 @@
-import React from 'react'
-import Header from '../Common/Header'
-import Footer from '../Common/Footer'
-import { Outlet } from 'react-router-dom'
+import React from 'react';
+import Header from '../Common/Header';
+import Footer from '../Common/Footer';
+import { Outlet } from 'react-router-dom';
 
 const UserLayout = () => {
   return (
@@ -20,4 +20,4 @@ const UserLayout = () => {
   )
 }
 
-export default UserLayout
+export default UserLayout;

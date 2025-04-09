@@ -71,4 +71,4 @@ if(error) return <p>Error: {error}</p>
   )
 }
 
-export default MyOrderPage
+export default MyOrderPage;

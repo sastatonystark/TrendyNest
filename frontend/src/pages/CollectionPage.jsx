@@ -70,4 +70,4 @@ const CollectionPage = () => {
     )
 }
 
-export default CollectionPage
+export default CollectionPage;

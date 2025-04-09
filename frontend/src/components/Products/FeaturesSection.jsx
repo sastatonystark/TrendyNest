@@ -1,6 +1,6 @@
-import React from 'react'
-import {HiArrowPathRoundedSquare} from "react-icons/hi2"
-import {HiOutlineCreditCard, HiShoppingBag} from "react-icons/hi"
+import React from 'react';
+import {HiArrowPathRoundedSquare} from "react-icons/hi2";
+import {HiOutlineCreditCard, HiShoppingBag} from "react-icons/hi";
 const FeaturesSection = () => {
   return (
     <section className='px-4 py-16 bg-white'>
@@ -47,4 +47,4 @@ const FeaturesSection = () => {
   )
 }
 
-export default FeaturesSection
+export default FeaturesSection;

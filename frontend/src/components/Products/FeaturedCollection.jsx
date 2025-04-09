@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 import featured from "../../assets/featured.webp";
-import {Link} from "react-router-dom"
+import {Link} from "react-router-dom";
 const FeaturedCollection = () => {
     return (
         <section className='py-16 px-4 lg:px-0'>
@@ -31,4 +31,4 @@ const FeaturedCollection = () => {
     )
 }
 
-export default FeaturedCollection
+export default FeaturedCollection;

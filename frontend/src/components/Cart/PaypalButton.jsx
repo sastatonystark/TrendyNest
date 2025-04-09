@@ -21,4 +21,4 @@ const PaypalButton = ({ amount, onSuccess, onError }) => {
     )
 }
 
-export default PaypalButton
+export default PaypalButton;

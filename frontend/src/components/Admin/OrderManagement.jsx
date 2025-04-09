@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import {fetchAllOrders, updateOrderStatus} from "../../redux/slices/adminOrderSlice"
+
 const OrderManagement = () => {
   
  const dispatch = useDispatch();
@@ -73,4 +74,4 @@ const OrderManagement = () => {
   )
 }
 
-export default OrderManagement
+export default OrderManagement;

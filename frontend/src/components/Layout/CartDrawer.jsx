@@ -54,4 +54,4 @@ const CartDrawer = ({ drawerOpen, toggleCartDrawer }) => {
     )
 }
 
-export default CartDrawer
+export default CartDrawer;

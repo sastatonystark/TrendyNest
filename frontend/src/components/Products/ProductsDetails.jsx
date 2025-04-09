@@ -182,4 +182,4 @@ const ProductsDetails = ({ productId }) => {
     )
 }
 
-export default ProductsDetails
+export default ProductsDetails;
