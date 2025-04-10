@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react'
-import MyOrdersPage from './MyOrdersPage'
-import { useDispatch, useSelector } from 'react-redux'
+import React, { useEffect } from 'react';
+import MyOrdersPage from './MyOrdersPage';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { clearCart } from '../redux/slices/cartSlice';
-import {logout} from "../redux/slices/authSlice"
+import {logout} from "../redux/slices/authSlice";
 const Profile = () => {
   const {user} = useSelector((state) => state.auth);
   const navigate = useNavigate();

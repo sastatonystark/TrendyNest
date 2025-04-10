@@ -30,7 +30,7 @@ if(error) return <p>Error: {error}</p>
                         <th className='py-2 px-4 sm:py-3'>Order ID</th>
                         <th className='py-2 px-4 sm:py-3'>Created</th>
                         <th className='py-2 px-4 sm:py-3'>Shipping Address</th>
-                        <th className='py-2 px-4 sm:py-3'> Items</th>
+                        <th className='py-2 px-4 sm:py-3'>Items</th>
                         <th className='py-2 px-4 sm:py-3'>Price</th>
                         <th className='py-2 px-4 sm:py-3'>Status</th>
                     </tr>
